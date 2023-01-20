@@ -2,10 +2,56 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fb671a;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
+}
+.hidden{
+    display: none;
+}
+.login{
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login figure{
+    margin-top: 72px;
+}
+.login .input-login{
+    width: 261px;
+    height: 54px;
+    background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 25px;
+}
+.login::-webkit-input-placeholder{
+    font-size: 18px;
+    line-height: 25px;
+    color: #AEAEAE;
+    
+}
+.button-input{
+    width: 109px;
+    height: 45px;
+    margin-top: 15px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #696969;
+
+    background: #E7E7E7;
+    border-radius: 9px;
+    border: none;
 }
 .container{
     width: 100%;
@@ -41,11 +87,18 @@ main .card-chat{
     list-style: none;
     padding: 0 9px;
     margin: 4px 0;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
     
     border: 1px solid #000;
 }
 main .card-chat b{
     font-weight: bold;
+}
+main .card-chat p{
+    color: #AAAAAA;
 }
 footer{
     z-index: 2;
@@ -94,4 +147,24 @@ footer .mensagem{
 }
 footer > ion-icon{
     font-size: 26px;
+}
+@media (min-width: 600px){
+    .login, .container, header, footer{
+        width:600px;
+        left: auto;
+        right: auto;
+        padding: 0;
+    }
+    header img{
+        margin-left: 22px;
+    }
+    header ion-icon{
+        margin-right: 22px;
+    }
+    footer .mensagem{
+        margin-left: 17px;
+    }
+    footer ion-icon{
+        margin-right: 17px;
+    }
 }
