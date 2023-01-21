@@ -24,6 +24,7 @@ body{
 }
 .login figure{
     margin-top: 72px;
+    margin-bottom: 94px;
 }
 .login .input-login{
     width: 261px;
@@ -55,9 +56,13 @@ body{
 }
 .container{
     width: 100%;
-    height: 100vh;
     background-color: #E5E5E5;
 }
+.container::-webkit-scrollbar{
+    height: 0;
+    width: 0;
+}
+
 header{
     z-index: 2;
     position: fixed;
@@ -75,15 +80,37 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+aside{
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    background-color: #FFFFFF;
+}
+aside h2{
+    width: 259px;
+    height: 84px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
 main{
     margin-top: 106px;
     margin-bottom: 80px;
+
+    height: 100vh;
+    overflow: auto;
+}
+main::-webkit-scrollbar{
+    height: 0;
+    width: 0;
 }
 main .card-chat{
     font-size: 14px;
     line-height: 16px;
     width: inherit;
-    height: 40px;
     list-style: none;
     padding: 0 9px;
     margin: 4px 0;
@@ -91,14 +118,28 @@ main .card-chat{
     display: flex;
     align-items: center;
     gap: 5px;
-    
-    border: 1px solid #000;
+}
+main .card-chat p {
+    min-height: 40px;
+}
+main .status{
+    background-color: #DCDCDC;
+}
+main .message{
+    background-color: #fff;
+}
+main .private_message{
+    background-color: #FFDEDE;
 }
 main .card-chat b{
     font-weight: bold;
+    display: contents;
+    word-break: break-word;
 }
-main .card-chat p{
+main .card-chat .timer{
     color: #AAAAAA;
+    display: flex;
+    align-items: center;
 }
 footer{
     z-index: 2;

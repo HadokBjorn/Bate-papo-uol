@@ -24,17 +24,25 @@
             <img src="./assets/logo 1.png" alt="Logo uol"/>
             <ion-icon name="people"></ion-icon>
         </header>
+        <!-- <aside>
+            <h2>
+                Escolha um contato
+                para enviar mensagem:
+            </h2>
+            <p><ion-icon name="people"></ion-icon> Todos</p>
+            <p><ion-icon name="person-circle-sharp"></ion-icon> João</p>
+            <p><ion-icon name="person-circle-sharp"></ion-icon> Maria</p>
+            <h2>Escolha a visibilidade:</h2>
+            <p><ion-icon name="lock-open"></ion-icon> Público</p>
+            <p><ion-icon name="lock-closed"></ion-icon> Reservadamente</p>
+
+        </aside> -->
         <main class="chat-container">
-            <li class="card-chat"><p>(09:21:45)</p> <b>João</b> entra na sala...</li>
-            <li class="card-chat"><p>(09:21:45)</p> <b>João</b> entra na sala...</li>
-            <li class="card-chat"><p>(09:21:45)</p> <b>João</b> entra na sala...</li>
-            <li class="card-chat"><p>(09:21:45)</p> <b>João</b> entra na sala...</li>
-            <li class="card-chat"><p>(09:21:45)</p> <b>João</b> entra na sala...</li>
-            <li class="card-chat"><p>(09:21:45)</p> <b>João</b> entra na sala...</li>
+        
         </main>
         <footer>
             <textarea onclick="mudaTamanhoText(this)" class="mensagem" placeholder="Escreva aqui..." type="text"></textarea>
-            <ion-icon name="paper-plane-outline"></ion-icon>
+            <ion-icon onclick="enviarMensagem()" name="paper-plane-outline"></ion-icon>
         </footer>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
