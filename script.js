@@ -3,9 +3,21 @@ const container = document.querySelector('.container');
 const pageLogin = document.querySelector('.login');
 const main = document.querySelector('.chat-container');
 let textoMensagem = ``;
-let nome = '';
+let nome = document.querySelector('.input-login');
 let usuario = {};
 let listaMensagem = [];
+
+mensagem.addEventListener('keypress',(e)=>{
+    if(e.key === 'Enter'&&nome!==''){
+        enviarMensagem();
+    }
+});
+
+nome.addEventListener('keypress',(e)=>{
+    if(e.key === 'Enter'&&nome!==''){
+        enviaNome();
+    }
+})
 
 function mudaTamanhoText(item){
     mensagem.style.height = '80%';
@@ -17,9 +29,9 @@ function atualizaStatus(){
 }
 
 function enviaNome() {
-    nome = document.querySelector('.input-login').value.toString();
+
     usuario = {
-        name: `${nome}`
+        name: `${nome.value.toString()}`
     }
     const nomeEnviado = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', usuario)
     .then((resposta) => {
@@ -81,7 +93,7 @@ function dataMensagem(){
 function enviarMensagem(){
     console.log(nome);
     const texto = {
-        from: nome,
+        from: nome.value,
         to: "Todos",
         text: mensagem.value,
         type: "message"
