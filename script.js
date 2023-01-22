@@ -2,8 +2,10 @@ const mensagem = document.querySelector('.mensagem');
 const container = document.querySelector('.container');
 const pageLogin = document.querySelector('.login');
 const main = document.querySelector('.chat-container');
-let textoMensagem = ``;
 let nome = document.querySelector('.input-login');
+const mask = document.querySelector('.mask');
+let textoMensagem = ``;
+
 let usuario = {};
 let listaMensagem = [];
 
@@ -14,7 +16,7 @@ mensagem.addEventListener('keypress',(e)=>{
 });
 
 nome.addEventListener('keypress',(e)=>{
-    if(e.key === 'Enter'&&nome!==''){
+    if(e.key === 'Enter' && nome !==''){
         enviaNome();
     }
 })
@@ -41,13 +43,22 @@ function enviaNome() {
             pageLogin.style.display = 'none';
             dataMensagem();
             setInterval(atualizaStatus, 5000);
+            setInterval(dataMensagem,3000);
         }
     )
     .catch((erro) => {
         console.log(erro.response.status)
-        alert('Nome de usuário invalido');
+        alert('Nome de usuário invalido, digite outro nome, pois este já está em uso.');
         document.querySelector('.input-login').value = '';
     });
+}
+
+function dataMensagem(){
+    const mensagens = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages')
+    .then((resposta) => {
+        listaMensagem = resposta.data;
+        printMensagens();
+    })
 }
 function printMensagens(){
 
@@ -67,7 +78,7 @@ function printMensagens(){
             </li>
             `;
         }
-        if(listaMensagem[i].type === 'private_message'){
+        if(listaMensagem[i].to === nome.value){
             textoMensagem += `
             <li class="card-chat private_message">
             <p><p class='timer'>(${listaMensagem[i].time})</p> <b>${listaMensagem[i].from}</b> para <b>${listaMensagem[i].to}</b> ${listaMensagem[i].text}</p>
@@ -76,22 +87,16 @@ function printMensagens(){
         }
 
     }
-    main.innerHTML += textoMensagem;
+    main.innerHTML = textoMensagem;
     const lastMensagem = document.querySelectorAll('.card-chat');
     const index = lastMensagem.length - 1;
     lastMensagem[index].scrollIntoView();
+    textoMensagem = ``;
+
 }
 
-function dataMensagem(){
-    const mensagens = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages')
-    .then((resposta) => {
-        listaMensagem = resposta.data;
-        printMensagens();
-    })
-}
 
 function enviarMensagem(){
-    console.log(nome);
     const texto = {
         from: nome.value,
         to: "Todos",
@@ -106,4 +111,28 @@ function enviarMensagem(){
         mensagem.attributes.placeholder.value = 'Escreva aqui...';
     })
     .catch((erro)=>{console.log(erro)})
+}
+
+function chatsAtivo(){
+    mask.style.display = 'flex';
+}
+function removerMask(){
+    mask.style.display = 'none';
+}
+
+
+function checkMark(user){
+    console.log(user)
+    const userCheck = user.children[1];
+
+
+    const anterior = document.querySelector('.active');
+    if (anterior !== null){
+        anterior.classList.remove('active');
+        anterior.style.display = 'none';
+
+    }
+    userCheck.classList.add('active');
+    userCheck.style.display = 'block';
+
 }
