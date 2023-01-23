@@ -119,6 +119,7 @@ function printMensagens(){
 
 
 function enviarMensagem(){
+    if(mensagem.value != ''){
     const texto = {
         from: nome.value,
         to: destino,
@@ -135,6 +136,9 @@ function enviarMensagem(){
     .catch((erro)=>{
         window.location.reload()
     })
+}else{
+    return;
+}
 }
 
 function chatsAtivo(){
