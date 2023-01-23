@@ -30,24 +30,22 @@ function mudaTamanhoText(item){
 }
 function atualizaStatus(){
     const status = axios.post('https://mock-api.driven.com.br/api/v6/uol/status',usuario);
-    console.log('online');
 }
 
 function enviaNome() {
 
     const loadingContainer = document.querySelector('.input-button-container');
+
+    if(nome.value != '') {
     
     usuario = {
         name: `${nome.value.toString()}`
     }
 
     loadingContainer.innerHTML = '<span class="loader"></span><p>Entrando...</p>';
-    console.log(nome.value);
 
     const nomeEnviado = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', usuario)
     .then((resposta) => {
-            console.log(resposta.status);
-            //alert('Login feito com sucesso');
             container.classList.remove('hidden');
             pageLogin.style.display = 'none';
             dataMensagem();
@@ -58,9 +56,7 @@ function enviaNome() {
         }
     )
     .catch((erro) => {
-        console.log(erro.response.status)
         alert('Nome de usuário invalido, digite outro nome, pois este já está em uso.');
-        console.log(nome.value)
         loadingContainer.innerHTML = `
             <input class="input-login" data-test="input-name" placeholder="Digite seu nome" type="text"/>
             <button onclick="enviaNome()" data-test="send-name" class="button-input">Entrar</button>
@@ -74,6 +70,9 @@ function enviaNome() {
         })
         
     });
+}else{
+    alert('Digite um nome para entrar!')
+}
 }
 
 function dataMensagem(){
@@ -134,7 +133,6 @@ function enviarMensagem(){
         mensagem.attributes.placeholder.value = 'Escreva aqui...';
     })
     .catch((erro)=>{
-        console.log(erro);
         window.location.reload()
     })
 }
