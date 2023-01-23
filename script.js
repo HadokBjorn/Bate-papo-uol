@@ -35,13 +35,19 @@ function atualizaStatus(){
 
 function enviaNome() {
 
+    const loadingContainer = document.querySelector('.input-button-container');
+    
     usuario = {
         name: `${nome.value.toString()}`
     }
+
+    loadingContainer.innerHTML = '<span class="loader"></span><p>Entrando...</p>';
+    console.log(nome.value);
+
     const nomeEnviado = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', usuario)
     .then((resposta) => {
             console.log(resposta.status);
-            alert('Login feito com sucesso');
+            //alert('Login feito com sucesso');
             container.classList.remove('hidden');
             pageLogin.style.display = 'none';
             dataMensagem();
@@ -54,7 +60,19 @@ function enviaNome() {
     .catch((erro) => {
         console.log(erro.response.status)
         alert('Nome de usuário invalido, digite outro nome, pois este já está em uso.');
-        document.querySelector('.input-login').value = '';
+        console.log(nome.value)
+        loadingContainer.innerHTML = `
+            <input class="input-login" data-test="input-name" placeholder="Digite seu nome" type="text"/>
+            <button onclick="enviaNome()" data-test="send-name" class="button-input">Entrar</button>
+        `;
+        nome = document.querySelector('.input-login');
+
+        nome.addEventListener('keypress',(e)=>{
+            if(e.key === 'Enter' && nome !==''){
+                enviaNome();
+            }
+        })
+        
     });
 }
 
