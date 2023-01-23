@@ -22,7 +22,9 @@
     <section class="container hidden">
         <header>
             <img src="./assets/logo 1.png" alt="Logo uol"/>
-            <ion-icon onclick="openSideBar()" name="people"></ion-icon>
+            <button onclick="openSideBar()" data-test="open-participants">
+                <ion-icon  name="people"></ion-icon>
+            </button>
         </header>
         <article  class="mask">
             <button class="off-mask" onclick="removerMask()" data-test="overlay"></button>

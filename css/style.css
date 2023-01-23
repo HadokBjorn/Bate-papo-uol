@@ -85,6 +85,10 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+header button{
+    border: none;
+    background-color: transparent;
+}
 .mask{
     position: fixed;
     width: 100%;
