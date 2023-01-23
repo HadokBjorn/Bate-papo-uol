@@ -16,47 +16,50 @@
         <figure>
             <img src="./assets/logo 2.png" alt="Logo uol do login"/>
         </figure>
-        <input class="input-login" placeholder="Digite seu nome" type="text"/>
-        <button onclick="enviaNome()" class="button-input">Entrar</button>
+        <input class="input-login" data-test="input-name" placeholder="Digite seu nome" type="text"/>
+        <button onclick="enviaNome()" data-test="send-name" class="button-input">Entrar</button>
     </article>
     <section class="container hidden">
         <header>
             <img src="./assets/logo 1.png" alt="Logo uol"/>
-            <ion-icon onclick="chatsAtivo()" name="people"></ion-icon>
+            <ion-icon onclick="openSideBar()" name="people"></ion-icon>
         </header>
         <article  class="mask">
-            <button class="off-mask" onclick="removerMask()"></button>
+            <button class="off-mask" onclick="removerMask()" data-test="overlay"></button>
             <aside>
                 <h2>
                     Escolha um contato<br>
                     para enviar mensagem:
                 </h2>
-                <article class="user-online">
-                    <div onclick="checkMark(this)">
-                        <p><ion-icon name="people"></ion-icon> Todos</p>
-                        <div class="check"><ion-icon  name="checkmark-sharp"></ion-icon></div>
-                    </div>
-                    <div onclick="checkMark(this)">
-                        <p><ion-icon name="person-circle-sharp"></ion-icon> João</p>
-                        <div class="check"><ion-icon  name="checkmark-sharp"></ion-icon></div>
-                    </div>
-                    <div onclick="checkMark(this)">
-                        <p><ion-icon name="person-circle-sharp"></ion-icon> Maria</p>
-                        <div class="check"><ion-icon name="checkmark-sharp"></ion-icon></div>
-                    </div>
+                <article id="user-online">
+                    
                 </article>
                 
                 <h2 class="visibilidade">Escolha a visibilidade:</h2>
-                <p><ion-icon name="lock-open"></ion-icon> Público</p>
-                <p><ion-icon name="lock-closed"></ion-icon> Reservadamente</p>
+                <article id="type">
+                    <div onclick="selectedType(this, 'message')" data-test="public">
+                        <p><ion-icon name="lock-open"></ion-icon> Público</p>
+                        <div class="check"><ion-icon data-test="check" name="checkmark-sharp"></ion-icon></div>
+                    </div>
+                    <div onclick="selectedType(this, 'private_message')" data-test="private">
+                        <p><ion-icon name="lock-closed"></ion-icon> Reservadamente</p>
+                        <div class="check"><ion-icon data-test="check"  name="checkmark-sharp"></ion-icon></div>
+                    </div>
+                </article>
             </aside>
         </article>
         <main class="chat-container">
         
         </main>
         <footer>
-            <textarea onclick="mudaTamanhoText(this)" class="mensagem" placeholder="Escreva aqui..." type="text"></textarea>
-            <ion-icon onclick="enviarMensagem()" name="paper-plane-outline"></ion-icon>
+            <div class="container-input">
+            <textarea onclick="mudaTamanhoText(this)" data-test="input-message" class="mensagem" placeholder="Escreva aqui..." type="text"></textarea>
+            <p id="notificacao" data-test="recipient"></p>
+
+            </div>
+            <button data-test="send-message" onclick="enviarMensagem()">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+            </button>
         </footer>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>

@@ -8,6 +8,10 @@ body{
     font-style: normal;
     font-weight: 400;
 }
+body::-webkit-scrollbar{
+    height: 0;
+    width: 0;
+}
 .hidden{
     display: none;
 }
@@ -96,6 +100,7 @@ header{
 .mask .off-mask{
     height: 100vh;
     width: 30%;
+    border: none;
     background-color: rgba(0, 0, 0, 0.6);
 }
 aside{
@@ -116,19 +121,24 @@ aside h2{
     
     color: #000000;
 }
+aside #user-online{
+    height: 300px;
+    overflow: auto;
+}
+#user-online::-webkit-scrollbar{
+    height: 0;
+    width: 0;
+}
 aside .visibilidade{
     height: 66px;
 }
-aside div{
+aside article > div{
     padding: 0 16px;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
     display: flex;
     justify-content: space-between;
-}
-aside p{
-    padding: 0 16px;
 }
 .check{
     color:green;
@@ -199,20 +209,36 @@ footer{
     align-items: center;
     justify-content: space-between;
 }
+footer .container-input{
+    position: relative;
+    width: 90%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
 footer .mensagem{
     border: none;
     word-break: normal;
-    width: 90%;
     height: 30%;
-
+    width: inherit;
     overflow: hidden;
     outline: none;
     resize: none;
-
+    /* padding-bottom: 25px; */
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 18px;
     line-height: 21px;
+}
+footer p{
+    position: absolute;
+    left: 17px;
+    bottom: 0;
+    color: #505050;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 25px;
+    
 }
 .mensagem::-webkit-input-placeholder{
     font-style: italic;
@@ -227,7 +253,11 @@ footer .mensagem{
 
     color: #000000;
 }
-footer > ion-icon{
+footer button{
+    border: none;
+    background-color: transparent;
+}
+footer button > ion-icon{
     font-size: 26px;
 }
 @media (min-width: 600px){
