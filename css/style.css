@@ -309,7 +309,6 @@ footer .mensagem{
 }
 footer p{
     position: absolute;
-    left: 17px;
     bottom: 0;
     color: #505050;
     font-weight: 300;
@@ -359,4 +358,7 @@ footer button > ion-icon{
     footer ion-icon{
         margin-right: 17px;
     }
+footer p{
+    left: 17px;
+}
 }
