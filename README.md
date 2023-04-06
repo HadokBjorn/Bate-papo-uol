@@ -1,5 +1,6 @@
 # Bate-papo-uol
 ### bate-papo totalmente funcional, inspirado no saudoso Bate-Papo UOL.
+## Link para testar o projeto (deploy) : https://bate-papo-uol-gamma.vercel.app/
 ## 📝 Descrição
 
 ### Não foi utilizado nenhuma biblioteca para implementar este projeto (jquery, lodash, react, etc), nem outras linguagens que compilem para JavaScript (TypeScript, Clojure, ELM, etc), somente JavaScript puro.
