@@ -1,6 +1,15 @@
 # Bate-papo-uol
+## Tecnologias usadas: HTML | CSS | JS | Vercel | Figma | Json | API
 ### bate-papo totalmente funcional, inspirado no saudoso Bate-Papo UOL.
 ## Link para testar o projeto (deploy) : https://bate-papo-uol-gamma.vercel.app/
+![image](https://user-images.githubusercontent.com/113884763/231088977-90344246-0695-42a9-8ddc-dc3b0a6d4b26.png)
+![image](https://user-images.githubusercontent.com/113884763/231089763-1e9e77c6-c1e4-40ab-8afb-c7a0031da6de.png)
+![image](https://user-images.githubusercontent.com/113884763/231089413-d4835296-e207-43a6-b9ca-0aac112e1142.png)
+![image](https://user-images.githubusercontent.com/113884763/231089571-81186442-f7f5-4c09-8415-1af2619fa611.png)
+![image](https://user-images.githubusercontent.com/113884763/231089970-fe3e4b53-094a-4020-9ee8-78f3bd2c8188.png)
+![image](https://user-images.githubusercontent.com/113884763/231090229-8dd171d6-d81e-4f28-9e43-8253e52323af.png)
+![image](https://user-images.githubusercontent.com/113884763/231090366-bbc377e8-9042-4f2d-8907-6b4275300fc0.png)
+
 ## 📝 Descrição
 
 ### Não foi utilizado nenhuma biblioteca para implementar este projeto (jquery, lodash, react, etc), nem outras linguagens que compilem para JavaScript (TypeScript, Clojure, ELM, etc), somente JavaScript puro.
@@ -16,7 +25,7 @@
 ### As mensagens com Reservadamente só são exibidas se o nome do destinatário ou remetente for igual ao nome do usuário que está usando o chat (ou senão ele poderia ver as mensagens reservadas para outras pessoas)
 - ⚠️ Atenção: Fazer essa filtragem no front-end não é uma boa prática, o ideal seria o servidor não fornecer essas mensagens para outras pessoas. Entretanto, para fins didáticos foi deixado dessa forma.
 ## Entrada na sala:
-### Ao entrar no site, o usuário é perguntado com um `prompt` ****seu lindo nome.
+### Ao entrar no site, o usuário deve inserir o nome que usará no chat.
 ### Após inserção do nome, este é enviado para o servidor pra cadastrar o usuário:
 ### Caso o servidor responda com sucesso, o usuário entra na sala;
 ### Caso o servidor responda com erro, é pedido para o usuário digitar outro nome, pois este já está em uso;
